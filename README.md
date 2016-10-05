@@ -1,5 +1,5 @@
 # Amazon PhP
-###A PhP Soap Library to Amazon Product Advertising API 
+### A PhP Soap Library to Amazon Product Advertising API 
 [![@psbhanu on Twitter](https://img.shields.io/badge/twitter-%40psbhanu16-blue.svg)](https://twitter.com/psbhanu16)
 [![Total Downloads](https://img.shields.io/badge/downloads-1K-blue.svg)](https://packagist.org/packages/psbhanu/Amazon-PhP)
 [![Build Status](https://img.shields.io/badge/build-passing-green.svg)](https://travis-ci.org/psbhanu/Amazon-PhP)
@@ -492,3 +492,10 @@ $returnType = $this->amazon->returnType(); // Get changed return type
 var_dump($returnType);
 
 ```
+## Author:
+[psbhanu](http://psbhanu.com) psbhanu@outlook.com
+
+## Special Credits:
+Exeu exeu65@googlemail.com
+Julien Chaumond chaumond@gmail.com
+Stu Baker stu@fountless.com
