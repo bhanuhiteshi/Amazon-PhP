@@ -200,13 +200,13 @@ $amazon = new Amazon($params);
 $amazon->responseGroup('Cart');  // DO NOT FORGOT TO SET THIS
 $response = $amazon->cartCreate($ASIN, $qty = 1); // Replace $ASIN with actual ASIN value of Amazon product
 
-$purchaseUrl 	  = $response->Cart->PurchaseURL;
-$cartId 		    = $response->Cart->CartId;	
-$HMAC 			    = $response->Cart->HMAC;	
-$URLEncodedHMAC	= $response->Cart->URLEncodedHMAC;	
-$MobileCartURL	= $response->Cart->MobileCartURL;	
-$SubTotal		    = $response->Cart->SubTotal;	
-$CartItems		  = $response->Cart->CartItems;	
+$purchaseUrl      = $response->Cart->PurchaseURL;
+$cartId 		      = $response->Cart->CartId;	
+$HMAC 			      = $response->Cart->HMAC;	
+$URLEncodedHMAC   = $response->Cart->URLEncodedHMAC;	
+$MobileCartURL    = $response->Cart->MobileCartURL;	
+$SubTotal		      = $response->Cart->SubTotal;	
+$CartItems		    = $response->Cart->CartItems;	
 
 ```
 
@@ -226,13 +226,13 @@ $this->load->library('amazon', $params);
 $this->amazon->responseGroup('Cart');  // DO NOT FORGOT TO SET THIS
 $response = $this->amazon->cartCreate($ASIN, $qty = 1); // Replace $ASIN with actual ASIN value of Amazon product
 
-$purchaseUrl 	  = $response->Cart->PurchaseURL;
-$cartId 		    = $response->Cart->CartId;	
-$HMAC 			    = $response->Cart->HMAC;	
-$URLEncodedHMAC	= $response->Cart->URLEncodedHMAC;	
-$MobileCartURL	= $response->Cart->MobileCartURL;	
-$SubTotal		    = $response->Cart->SubTotal;	
-$CartItems		  = $response->Cart->CartItems;	
+$purchaseUrl      = $response->Cart->PurchaseURL;
+$cartId 		      = $response->Cart->CartId;	
+$HMAC 			      = $response->Cart->HMAC;	
+$URLEncodedHMAC   = $response->Cart->URLEncodedHMAC;	
+$MobileCartURL    = $response->Cart->MobileCartURL;	
+$SubTotal		      = $response->Cart->SubTotal;	
+$CartItems		    = $response->Cart->CartItems;	
 
 ```
 
@@ -257,13 +257,13 @@ $response = $amazon->cartAdd($ASIN, $qty = 1, $HMAC, $cartId);
 // Replace $ASIN with actual ASIN value of Amazon product
 // createCart methid will return HMAC and cartId that you need to supply here in place of $HMAC and $cartId respectively.
 
-$purchaseUrl 	  = $response->Cart->PurchaseURL;
-$cartId 		    = $response->Cart->CartId;	
-$HMAC 			    = $response->Cart->HMAC;	
-$URLEncodedHMAC	= $response->Cart->URLEncodedHMAC;	
-$MobileCartURL	= $response->Cart->MobileCartURL;	
-$SubTotal		    = $response->Cart->SubTotal;	
-$CartItems		  = $response->Cart->CartItems;	
+$purchaseUrl      = $response->Cart->PurchaseURL;
+$cartId 		      = $response->Cart->CartId;	
+$HMAC 			      = $response->Cart->HMAC;	
+$URLEncodedHMAC   = $response->Cart->URLEncodedHMAC;	
+$MobileCartURL    = $response->Cart->MobileCartURL;	
+$SubTotal		      = $response->Cart->SubTotal;	
+$CartItems		    = $response->Cart->CartItems;	
 
 ```
 
@@ -285,13 +285,13 @@ $response = $this->amazon->cartAdd($ASIN, $qty = 1, $HMAC, $cartId);
 // Replace $ASIN with actual ASIN value of Amazon product
 // createCart methid will return HMAC and cartId that you need to supply here in place of $HMAC and $cartId respectively.
 
-$purchaseUrl 	  = $response->Cart->PurchaseURL;
-$cartId 		    = $response->Cart->CartId;	
-$HMAC 			    = $response->Cart->HMAC;	
-$URLEncodedHMAC	= $response->Cart->URLEncodedHMAC;	
-$MobileCartURL	= $response->Cart->MobileCartURL;	
-$SubTotal		    = $response->Cart->SubTotal;	
-$CartItems		  = $response->Cart->CartItems;	
+$purchaseUrl      = $response->Cart->PurchaseURL;
+$cartId 		      = $response->Cart->CartId;	
+$HMAC 			      = $response->Cart->HMAC;	
+$URLEncodedHMAC   = $response->Cart->URLEncodedHMAC;	
+$MobileCartURL    = $response->Cart->MobileCartURL;	
+$SubTotal		      = $response->Cart->SubTotal;	
+$CartItems		    = $response->Cart->CartItems;	
 
 ```
 
