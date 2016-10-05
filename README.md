@@ -144,7 +144,8 @@ $response = $amazon->search('SEARCH TERM');
 
 var_dump( $response ); // Response from Amazon with resulted products
 
-$response = $amazon->lookup($ASIN); // Replace $ASIN with actual ASIN value of Amazon product
+$response = $amazon->lookup($ASIN); 
+// Replace $ASIN with actual ASIN value of Amazon product
 
 var_dump( $response ); // Response from Amazon with resulted product
 
@@ -175,7 +176,8 @@ $response = $this->amazon->search('SEARCH TERM');
 
 var_dump( $response ); // Response from Amazon with resulted products
 
-$response = $this->amazon->lookup($ASIN); // Replace $ASIN with actual ASIN value of Amazon product
+$response = $this->amazon->lookup($ASIN); 
+// Replace $ASIN with actual ASIN value of Amazon product
 
 var_dump( $response ); // Response from Amazon with resulted product
 
@@ -198,7 +200,8 @@ $params = array(
 $amazon = new Amazon($params);
 
 $amazon->responseGroup('Cart');  // DO NOT FORGOT TO SET THIS
-$response = $amazon->cartCreate($ASIN, $qty = 1); // Replace $ASIN with actual ASIN value of Amazon product
+$response = $amazon->cartCreate($ASIN, $qty = 1); 
+// Replace $ASIN with actual ASIN value of Amazon product
 
 $purchaseUrl      = $response->Cart->PurchaseURL;
 $cartId 		      = $response->Cart->CartId;	
@@ -224,7 +227,8 @@ $params = array(
 $this->load->library('amazon', $params);
 
 $this->amazon->responseGroup('Cart');  // DO NOT FORGOT TO SET THIS
-$response = $this->amazon->cartCreate($ASIN, $qty = 1); // Replace $ASIN with actual ASIN value of Amazon product
+$response = $this->amazon->cartCreate($ASIN, $qty = 1); 
+// Replace $ASIN with actual ASIN value of Amazon product
 
 $purchaseUrl      = $response->Cart->PurchaseURL;
 $cartId 		      = $response->Cart->CartId;	
@@ -255,7 +259,8 @@ $amazon = new Amazon($params);
 $amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
 $response = $amazon->cartAdd($ASIN, $qty = 1, $HMAC, $cartId); 
 // Replace $ASIN with actual ASIN value of Amazon product
-// createCart methid will return HMAC and cartId that you need to supply here in place of $HMAC and $cartId respectively.
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
 
 $purchaseUrl      = $response->Cart->PurchaseURL;
 $cartId 		      = $response->Cart->CartId;	
@@ -283,7 +288,8 @@ $this->load->library('amazon', $params);
 $this->amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
 $response = $this->amazon->cartAdd($ASIN, $qty = 1, $HMAC, $cartId); 
 // Replace $ASIN with actual ASIN value of Amazon product
-// createCart methid will return HMAC and cartId that you need to supply here in place of $HMAC and $cartId respectively.
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
 
 $purchaseUrl      = $response->Cart->PurchaseURL;
 $cartId 		      = $response->Cart->CartId;	
@@ -295,7 +301,7 @@ $CartItems		    = $response->Cart->CartItems;
 
 ```
 
-### Calling Cart Operation Method - cartAdd - over Amazon Class object - Core
+### Calling Cart Operation Method - cartGet - over Amazon Class object - Core
 ```php
 <?php
 // Require the Class File.
@@ -313,13 +319,14 @@ $amazon = new Amazon($params);
 
 $amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
 $basket = $amazon->cartGet($HMAC, $cartId);
-// createCart methid will return HMAC and cartId that you need to supply here in place of $HMAC and $cartId respectively.
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
 
 var_dump($basket); 
 
 ```
 
-### Calling Cart Operation Method - cartAdd - over Amazon Class object - Core
+### Calling Cart Operation Method - cartGet - over Amazon Class object - CodeIgniter
 ```php
 <?php
 // Instantiate an Amazon PhP Library object.
@@ -334,8 +341,111 @@ $this->load->library('amazon', $params);
 
 $this->amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
 $basket = $this->amazon->cartGet($HMAC, $cartId);
-// createCart methid will return HMAC and cartId that you need to supply here in place of $HMAC and $cartId respectively.
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
 
 var_dump($basket); 
+
+```
+
+### Calling Cart Operation Method - cartModify - over Amazon Class object - Core
+```php
+<?php
+// Require the Class File.
+require 'Amazon.php';
+
+// Instantiate an Amazon PhP Library object.
+$params = array(
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
+);
+
+$amazon = new Amazon($params);
+
+$amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
+$response = $amazon->cartModify($cartItemId, $qty = 2, $HMAC, $cartId);
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
+// Once product get added to cart it can only be refer using cartItemId. 
+// You can get cartItemId response of operations like cartCreate, cartAdd and cartGet. 
+// You need to replace that value in place of $cartItemId.
+// To delete product from cart - set $qty = 0
+
+var_dump($response); 
+
+```
+
+### Calling Cart Operation Method - cartModify - over Amazon Class object - CodeIgniter
+```php
+<?php
+// Instantiate an Amazon PhP Library object.
+$params = array(
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
+);
+
+$this->load->library('amazon', $params);
+
+$this->amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
+$response = $this->amazon->cartModify($cartItemId, $qty = 2, $HMAC, $cartId);
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
+// Once product get added to cart it can only be refer using cartItemId. 
+// You can get cartItemId response of operations like cartCreate, cartAdd and cartGet. 
+// You need to replace that value in place of $cartItemId.
+// To delete product from cart - set $qty = 0
+
+var_dump($response); 
+
+```
+
+### Calling Cart Operation Method - cartClear - over Amazon Class object - Core
+```php
+<?php
+// Require the Class File.
+require 'Amazon.php';
+
+// Instantiate an Amazon PhP Library object.
+$params = array(
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
+);
+
+$amazon = new Amazon($params);
+
+$amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
+$response = $amazon->cartClear($HMAC, $cartId);
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
+
+var_dump($response); 
+
+```
+
+### Calling Cart Operation Method - cartClear - over Amazon Class object - CodeIgniter
+```php
+<?php
+// Instantiate an Amazon PhP Library object.
+$params = array(
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
+);
+
+$this->load->library('amazon', $params);
+
+$this->amazon->responseGroup('Request,Cart'); // DO NOT FORGOT TO SET THIS
+$response = $this->amazon->cartClear($HMAC, $cartId);
+// createCart methid will return HMAC and cartId that you need to supply 
+// here in place of $HMAC and $cartId respectively.
+
+var_dump($response); 
 
 ```
