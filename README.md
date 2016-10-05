@@ -10,6 +10,9 @@ The **Amazon Soap Library for PHP** makes it easy for developers to implement Am
 
 You can use it with your Core PhP application or you can implement it with your Framework like with CodeIgniter. To Use with CodeIgniter just copy Amazon.php to your library directory. To use with Core Application or with any other framework just include or require the file and start by instantiating the Amazon Class. 
 
+## Prerequisite
+* PhP extension - SOAP
+
 ## Available Methods
 ### Normal Operation Methods
 * search - Get Amazon Products with respect to the searched term.
