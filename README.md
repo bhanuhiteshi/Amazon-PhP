@@ -44,10 +44,10 @@ require 'Amazon.php';
 
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $amazon = new Amazon($params);
@@ -59,10 +59,10 @@ $amazon = new Amazon($params);
 
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $this->load->library('amazon', $params);
@@ -79,10 +79,10 @@ require 'Amazon.php';
 
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $amazon = new Amazon($params);
@@ -100,10 +100,10 @@ $amazon->responseGroup('RESPONSE GROUPS');
 <?php
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $this->load->library('amazon', $params);
@@ -124,10 +124,10 @@ require 'Amazon.php';
 
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $amazon = new Amazon($params);
@@ -155,10 +155,10 @@ var_dump( $response ); // Response from Amazon with resulted product
 <?php
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $this->load->library('amazon', $params);
@@ -189,10 +189,10 @@ require 'Amazon.php';
 
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $amazon = new Amazon($params);
@@ -215,10 +215,10 @@ $CartItems		  = $response->Cart->CartItems;
 <?php
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $this->load->library('amazon', $params);
@@ -244,10 +244,10 @@ require 'Amazon.php';
 
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $amazon = new Amazon($params);
@@ -272,10 +272,10 @@ $CartItems		  = $response->Cart->CartItems;
 <?php
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $this->load->library('amazon', $params);
@@ -303,10 +303,10 @@ require 'Amazon.php';
 
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $amazon = new Amazon($params);
@@ -324,10 +324,10 @@ var_dump($basket);
 <?php
 // Instantiate an Amazon PhP Library object.
 $params = array(
-  'AWS_API_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_SECRET_KEY' => 'XXXX-XXXX-XXXX-XXXX', 
-  'AWS_API_LOCALE' => 'com', 
-  'AWS_ASSOCIATE_TAG' => 'XXXX-XXXX-XXXX-XXXX' 
+  'AWS_API_KEY'         => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_SECRET_KEY'  => 'XXXX-XXXX-XXXX-XXXX', 
+  'AWS_API_LOCALE'      => 'com', 
+  'AWS_ASSOCIATE_TAG'   => 'XXXX-XXXX-XXXX-XXXX' 
 );
 
 $this->load->library('amazon', $params);
