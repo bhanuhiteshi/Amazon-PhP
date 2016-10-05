@@ -449,3 +449,43 @@ $response = $this->amazon->cartClear($HMAC, $cartId);
 var_dump($response); 
 
 ```
+
+### Set/Get Return Type to Amazon Class object - Core
+```php
+<?php
+// Possible return types:
+// 1 for Object (Default)
+// 2 for Array
+
+$returnType = $amazon->returnType(); // Get return type
+var_dump($returnType);
+
+$amazon->returnType(1); // Set return type to Object
+$returnType = $amazon->returnType(); // Get changed return type
+var_dump($returnType);
+
+$amazon->returnType(2); // Set return type to Array
+$returnType = $amazon->returnType(); // Get changed return type
+var_dump($returnType);
+
+```
+
+### Set/Get Return Type to Amazon Class object - CodeIgniter
+```php
+<?php
+// Possible return types:
+// 1 for Object (Default)
+// 2 for Array
+
+$returnType = $this->amazon->returnType(); // Get return type
+var_dump($returnType);
+
+$this->amazon->returnType(1); // Set return type to Object
+$returnType = $this->amazon->returnType(); // Get changed return type
+var_dump($returnType);
+
+$this->amazon->returnType(2); // Set return type to Array
+$returnType = $this->amazon->returnType(); // Get changed return type
+var_dump($returnType);
+
+```
