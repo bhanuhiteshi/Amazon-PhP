@@ -496,6 +496,4 @@ var_dump($returnType);
 [psbhanu](http://psbhanu.com) psbhanu@outlook.com
 
 ## Special Credits:
-Exeu exeu65@googlemail.com
-Julien Chaumond chaumond@gmail.com
-Stu Baker stu@fountless.com
+Exeu exeu65@googlemail.com, Julien Chaumond chaumond@gmail.com and Stu Baker stu@fountless.com
