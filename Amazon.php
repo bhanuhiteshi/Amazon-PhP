@@ -1,25 +1,25 @@
 <?php
 	/**
-		* Amazon PhP - A PhP Soap Library to Amazon Product Advertising API
-		* https://github.com/psbhanu/Amazon-PhP
-		*
-		* The Amazon Soap Library for PHP makes it easy for developers to implement Amazon Product Advertising API in their PHP Application, 
-		* and build robust applications including a e-commerce shop. You can get started in minutes by installing the Library through Composer 
-		* or by downloading a single zip or phar file from our latest release.
-		*
-		* You can use it with your Core PhP application or you can implement it with your Framework like with CodeIgniter. 
-		* To Use with CodeIgniter just copy Amazon.php to your library directory. To use with Core Application or with any other framework just 
-		* include or require the file and start by instantiating the Amazon Class. 
-		*
-		*
-		* Prerequisite	PhP extension - SOAP.
-		*
-		* @package      Amazon PhP
-		* @license      https://opensource.org/licenses/MIT MIT
-		* @version      1.0.0
-		* @author       psbhanu <psbhanu@outlook.com> <psbhanu.com>
-		* @link         https://github.com/psbhanu/Amazon-PhP/wiki Wiki
-		* @link         https://github.com/psbhanu/Amazon-PhP Source
+	* Amazon PhP - A PhP Soap Library to Amazon Product Advertising API
+	* https://github.com/psbhanu/Amazon-PhP
+	*
+	* The Amazon Soap Library for PHP makes it easy for developers to implement Amazon Product Advertising API in their PHP Application, 
+	* and build robust applications including a e-commerce shop. You can get started in minutes by installing the Library through Composer 
+	* or by downloading a single zip or phar file from our latest release.
+	*
+	* You can use it with your Core PhP application or you can implement it with your Framework like with CodeIgniter. 
+	* To Use with CodeIgniter just copy Amazon.php to your library directory. To use with Core Application or with any other framework just 
+	* include or require the file and start by instantiating the Amazon Class. 
+	*
+	*
+	* Prerequisite	PhP extension - SOAP.
+	*
+	* @package      Amazon PhP
+	* @license      https://opensource.org/licenses/MIT MIT
+	* @version      1.0.0
+	* @author       psbhanu <psbhanu@outlook.com> <psbhanu.com>
+	* @link         https://github.com/psbhanu/Amazon-PhP/wiki Wiki
+	* @link         https://github.com/psbhanu/Amazon-PhP Source
 	*/
 	
 	class Amazon {
@@ -28,18 +28,18 @@
 		const RETURN_TYPE_OBJECT = 2;
 		
 		/**
-			* Baseconfigurationstorage
-			*
-			* @var array
+		* Baseconfigurationstorage
+		*
+		* @var array
 		*/
 		private $requestConfig = array(
 			'requestDelay' => false
 		);
 		
 		/**
-			* Responseconfigurationstorage
-			*
-			* @var array
+		* Responseconfigurationstorage
+		*
+		* @var array
 		*/
 		private $responseConfig = array(
 			'returnType'          => self::RETURN_TYPE_OBJECT,
@@ -48,31 +48,31 @@
 		);
 		
 		/**
-			* All possible locations
-			*
-			* @var array
+		* All possible locations
+		*
+		* @var array
 		*/
 		private $possibleLocations = array('de', 'com', 'co.uk', 'ca', 'fr', 'co.jp', 'it', 'cn', 'es', 'in');
 		
 		/**
-			* The WSDL File
-			*
-			* @var string
+		* The WSDL File
+		*
+		* @var string
 		*/
 		protected $webserviceWsdl = 'http://webservices.amazon.com/AWSECommerceService/AWSECommerceService.wsdl';
 		
 		/**
-			* The SOAP Endpoint
-			*
-			* @var string
+		* The SOAP Endpoint
+		*
+		* @var string
 		*/
 		protected $webserviceEndpoint = 'https://webservices.amazon.%%COUNTRY%%/onca/soap?Service=AWSECommerceService';
 		
 		/**
-			* @param string $accessKey
-			* @param string $secretKey
-			* @param string $country
-			* @param string $associateTag
+		* @param string $accessKey
+		* @param string $secretKey
+		* @param string $country
+		* @param string $associateTag
 		*/
 		public function __construct($params) {
 			$accessKey 		= $params['AWS_API_KEY'];
@@ -91,13 +91,13 @@
 		}
 		
 		/**
-			* execute search
-			*
-			* @param string $pattern
-			*
-			* @return array|object return type depends on setting
-			*
-			* @see returnType()
+		* execute search
+		*
+		* @param string $pattern
+		*
+		* @return array|object return type depends on setting
+		*
+		* @see returnType()
 		*/
 		public function search($pattern, $nodeId = null) {
 			if (false === isset($this->requestConfig['category'])) :
@@ -123,13 +123,13 @@
 		}
 		
 		/**
-			* execute ItemLookup request
-			*
-			* @param string $asin
-			*
-			* @return array|object return type depends on setting
-			*
-			* @see returnType()
+		* execute ItemLookup request
+		*
+		* @param string $asin
+		*
+		* @return array|object return type depends on setting
+		*
+		* @see returnType()
 		*/
 		public function lookup($asin) {
 			$params = $this->buildRequestParams('ItemLookup', array(
@@ -143,10 +143,10 @@
 		
 		
 		/**
-			* Implementation of BrowseNodeLookup
-			* This allows to fetch information about nodes (children anchestors, etc.)
-			*
-			* @param integer $nodeId
+		* Implementation of BrowseNodeLookup
+		* This allows to fetch information about nodes (children anchestors, etc.)
+		*
+		* @param integer $nodeId
 		*/
 		public function browseNodeLookup($nodeId) {
 			$this->validateNodeId($nodeId);
@@ -161,10 +161,10 @@
 		}
 		
 		/**
-			* Implementation of SimilarityLookup
-			* This allows to fetch information about product related to the parameter product
-			*
-			* @param string $asin
+		* Implementation of SimilarityLookup
+		* This allows to fetch information about product related to the parameter product
+		*
+		* @param string $asin
 		*/
 		public function similarityLookup($asin) {
 			$params = $this->buildRequestParams('SimilarityLookup', array(
@@ -177,12 +177,12 @@
 		}
 		
 		/**
-			* Builds the request parameters
-			*
-			* @param string $function
-			* @param array  $params
-			*
-			* @return array
+		* Builds the request parameters
+		*
+		* @param string $function
+		* @param array  $params
+		*
+		* @return array
 		*/
 		protected function buildRequestParams($function, array $params) {
 			$associateTag = array();
@@ -207,9 +207,9 @@
 		}
 		
 		/**
-			* Prepares the responsegroups and returns them as array
-			*
-			* @return array|prepared responsegroups
+		* Prepares the responsegroups and returns them as array
+		*
+		* @return array|prepared responsegroups
 		*/
 		protected function prepareResponseGroup() {
 			if (false === strstr($this->responseConfig['responseGroup'], ','))
@@ -219,10 +219,10 @@
 		}
 		
 		/**
-			* @param string $function Name of the function which should be called
-			* @param array $params Requestparameters 'ParameterName' => 'ParameterValue'
-			*
-			* @return array The response as an array with stdClass objects
+		* @param string $function Name of the function which should be called
+		* @param array $params Requestparameters 'ParameterName' => 'ParameterValue'
+		*
+		* @return array The response as an array with stdClass objects
 		*/
 		protected function performSoapRequest($function, $params) {
 			if (true ===  $this->requestConfig['requestDelay']) :
@@ -248,11 +248,11 @@
 		}
 		
 		/**
-			* Provides some necessary soap headers
-			*
-			* @param string $function
-			*
-			* @return array Each element is a concrete SoapHeader object
+		* Provides some necessary soap headers
+		*
+		* @param string $function
+		*
+		* @return array Each element is a concrete SoapHeader object
 		*/
 		protected function buildSoapHeader($function) {
 			$timeStamp = $this->getTimestamp();
@@ -278,31 +278,31 @@
 		}
 		
 		/**
-			* provides current gm date
-			*
-			* primary needed for the signature
-			*
-			* @return string
+		* provides current gm date
+		*
+		* primary needed for the signature
+		*
+		* @return string
 		*/
 		final protected function getTimestamp() {
 			return gmdate("Y-m-d\TH:i:s\Z");
 		}
 		
 		/**
-			* provides the signature
-			*
-			* @return string
+		* provides the signature
+		*
+		* @return string
 		*/
 		final protected function buildSignature($request) {
 			return base64_encode(hash_hmac("sha256", $request, $this->requestConfig['secretKey'], true));
 		}
 		
 		/**
-			* Basic validation of the nodeId
-			*
-			* @param integer $nodeId
-			*
-			* @return boolean
+		* Basic validation of the nodeId
+		*
+		* @param integer $nodeId
+		*
+		* @return boolean
 		*/
 		final protected function validateNodeId($nodeId) {
 			if (false === is_numeric($nodeId) || $nodeId <= 0) :
@@ -313,11 +313,11 @@
 		}
 		
 		/**
-			* Returns the response either as Array or Array/Object
-			*
-			* @param object $object
-			*
-			* @return mixed
+		* Returns the response either as Array or Array/Object
+		*
+		* @param object $object
+		*
+		* @return mixed
 		*/
 		protected function returnData($object) {
 			switch ($this->responseConfig['returnType']) :
@@ -338,11 +338,11 @@
 		}
 		
 		/**
-			* Transforms the responseobject to an array
-			*
-			* @param object $object
-			*
-			* @return array An arrayrepresentation of the given object
+		* Transforms the responseobject to an array
+		*
+		* @param object $object
+		*
+		* @return array An arrayrepresentation of the given object
 		*/
 		protected function objectToArray($object) {
 			$out = array();
@@ -366,14 +366,14 @@
 		}
 		
 		/**
-			* set or get optional parameters
-			*
-			* if the argument params is null it will reutrn the current parameters,
-			* otherwise it will set the params and return itself.
-			*
-			* @param array $params the optional parameters
-			*
-			* @return array|Amazon depends on params argument
+		* set or get optional parameters
+		*
+		* if the argument params is null it will reutrn the current parameters,
+		* otherwise it will set the params and return itself.
+		*
+		* @param array $params the optional parameters
+		*
+		* @return array|Amazon depends on params argument
 		*/
 		public function optionalParameters($params = null) {
 			if (null === $params) :
@@ -395,14 +395,14 @@
 		}
 		
 		/**
-			* Set or get the country
-			*
-			* if the country argument is null it will return the current
-			* country, otherwise it will set the country and return itself.
-			*
-			* @param string|null $country
-			*
-			* @return string|Amazon depends on country argument
+		* Set or get the country
+		*
+		* if the country argument is null it will return the current
+		* country, otherwise it will set the country and return itself.
+		*
+		* @param string|null $country
+		*
+		* @return string|Amazon depends on country argument
 		*/
 		public function country($country = null) {
 			if (null === $country) :
@@ -425,11 +425,11 @@
 		}
 		
 		/**
-			* Setting/Getting the amazon category
-			*
-			* @param string $category
-			*
-			* @return string|Amazon depends on category argument
+		* Setting/Getting the amazon category
+		*
+		* @param string $category
+		*
+		* @return string|Amazon depends on category argument
 		*/
 		public function category($category = null) {
 			if (null === $category) :
@@ -442,11 +442,11 @@
 		}
 		
 		/**
-			* Setting/Getting the responsegroup
-			*
-			* @param string $responseGroup Comma separated groups
-			*
-			* @return string|Amazon depends on responseGroup argument
+		* Setting/Getting the responsegroup
+		*
+		* @param string $responseGroup Comma separated groups
+		*
+		* @return string|Amazon depends on responseGroup argument
 		*/
 		public function responseGroup($responseGroup = null) {
 			if (null === $responseGroup) :
@@ -459,12 +459,12 @@
 		}
 		
 		/**
-			* Setting/Getting the returntype
-			* It can be an object or an array
-			*
-			* @param integer $type Use the constants RETURN_TYPE_ARRAY or RETURN_TYPE_OBJECT
-			*
-			* @return integer|Amazon depends on type argument
+		* Setting/Getting the returntype
+		* It can be an object or an array
+		*
+		* @param integer $type Use the constants RETURN_TYPE_ARRAY or RETURN_TYPE_OBJECT
+		*
+		* @return integer|Amazon depends on type argument
 		*/
 		public function returnType($type = null) {
 			if (null === $type) :
@@ -477,12 +477,12 @@
 		}
 		
 		/**
-			* Setter/Getter of the AssociateTag.
-			* This could be used for late bindings of this attribute
-			*
-			* @param string $associateTag
-			*
-			* @return string|Amazon depends on associateTag argument
+		* Setter/Getter of the AssociateTag.
+		* This could be used for late bindings of this attribute
+		*
+		* @param string $associateTag
+		*
+		* @return string|Amazon depends on associateTag argument
 		*/
 		public function associateTag($associateTag = null) {
 			if (null === $associateTag) :
@@ -495,7 +495,7 @@
 		}
 		
 		/**
-			* @deprecated use returnType() instead
+		* @deprecated use returnType() instead
 		*/
 		public function setReturnType($type)
 		{
@@ -503,12 +503,12 @@
 		}
 		
 		/**
-			* Setting the resultpage to a specified value.
-			* Allows to browse resultsets which have more than one page.
-			*
-			* @param integer $page
-			*
-			* @return Amazon
+		* Setting the resultpage to a specified value.
+		* Allows to browse resultsets which have more than one page.
+		*
+		* @param integer $page
+		*
+		* @return Amazon
 		*/
 		public function page($page) {
 			if (false === is_numeric($page) || $page <= 0) :
@@ -529,17 +529,17 @@
 		}
 		
 		/**
-			* Enables or disables the request delay.
-			* If it is enabled (true) every request is delayed one second to get rid of the api request limit.
-			*
-			* Reasons for this you can read on this site:
-			* https://affiliate-program.amazon.com/gp/advertising/api/detail/faq.html
-			*
-			* By default the requestdelay is disabled
-			*
-			* @param boolean $enable true = enabled, false = disabled
-			*
-			* @return boolean|Amazon depends on enable argument
+		* Enables or disables the request delay.
+		* If it is enabled (true) every request is delayed one second to get rid of the api request limit.
+		*
+		* Reasons for this you can read on this site:
+		* https://affiliate-program.amazon.com/gp/advertising/api/detail/faq.html
+		*
+		* By default the requestdelay is disabled
+		*
+		* @param boolean $enable true = enabled, false = disabled
+		*
+		* @return boolean|Amazon depends on enable argument
 		*/
 		public function requestDelay($enable = null) {
 			if (false === is_null($enable) && true === is_bool($enable)) :
@@ -552,14 +552,14 @@
 		}
 
 		/**
-			* execute CartGet request
-			*
-			* @param string $hmac
-			* @param string $cartId
-			*
-			* @return array|object return type depends on setting
-			*
-			* @see returnType()
+		* execute CartGet request
+		*
+		* @param string $hmac
+		* @param string $cartId
+		*
+		* @return array|object return type depends on setting
+		*
+		* @see returnType()
 		*/
 		public function cartGet($hmac, $cartId) {
 			$params = $this->buildRequestParams('CartGet', array(
@@ -574,14 +574,14 @@
 		} 
 		
 		/**
-			* execute CartCreate request
-			*
-			* @param string $ASIN
-			* @param string $qty
-			*
-			* @return array|object return type depends on setting
-			*
-			* @see returnType()
+		* execute CartCreate request
+		*
+		* @param string $ASIN
+		* @param string $qty
+		*
+		* @return array|object return type depends on setting
+		*
+		* @see returnType()
 		*/		
 		public function cartCreate($ASIN, $qty) {
 			$params = $this->buildRequestParams('CartCreate', array(
@@ -598,16 +598,16 @@
 		}	
 		
 		/**
-			* execute CartAdd request
-			*
-			* @param string $ASIN
-			* @param string $qty
-			* @param string $hmac
-			* @param string $cartId
-			*
-			* @return array|object return type depends on setting
-			*
-			* @see returnType()
+		* execute CartAdd request
+		*
+		* @param string $ASIN
+		* @param string $qty
+		* @param string $hmac
+		* @param string $cartId
+		*
+		* @return array|object return type depends on setting
+		*
+		* @see returnType()
 		*/	
 		public function cartAdd($ASIN, $qty, $hmac, $cartId) {
 			$params = $this->buildRequestParams('CartAdd', array(
@@ -627,16 +627,16 @@
 		}	
 		
 		/**
-			* execute CartModify request
-			*
-			* @param string $cartItemId
-			* @param string $qty
-			* @param string $hmac
-			* @param string $cartId
-			*
-			* @return array|object return type depends on setting
-			*
-			* @see returnType()
+		* execute CartModify request
+		*
+		* @param string $cartItemId
+		* @param string $qty
+		* @param string $hmac
+		* @param string $cartId
+		*
+		* @return array|object return type depends on setting
+		*
+		* @see returnType()
 		*/	
 		public function cartModify($cartItemId, $qty, $hmac, $cartId) {
 			$params = $this->buildRequestParams('CartModify', array(
@@ -656,14 +656,14 @@
 		}		
 
 		/**
-			* execute CartClear request
-			*
-			* @param string $hmac
-			* @param string $cartId
-			*
-			* @return array|object return type depends on setting
-			*
-			* @see returnType()
+		* execute CartClear request
+		*
+		* @param string $hmac
+		* @param string $cartId
+		*
+		* @return array|object return type depends on setting
+		*
+		* @see returnType()
 		*/	
 		public function cartClear($hmac, $cartId) {
 			$params = $this->buildRequestParams('CartClear', array(
